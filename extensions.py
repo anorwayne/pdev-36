@@ -20,7 +20,7 @@ class Converter:
             raise APIException("Неправильно введена валюта")
 
         response = requests.get(f"https://www.cbr-xml-daily.ru/daily_json.js")
-        data = response.json()
+        data = json.loads(response.json)
         if "Valute" in data:
             valute_data = data["Valute"]
             if base in valute_data and quote in valute_data:
