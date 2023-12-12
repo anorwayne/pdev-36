@@ -1,0 +1,14 @@
+{% extends 'default.html' %}
+
+{% block content %}
+    <h1>Список новостей</h1>
+    <ul>
+        {% for news in news_list %}
+            <li>
+                <h2>{{ news.title }}</h2>
+                <p>Дата публикации: {{ news.date_published }}</p>
+                <p>{{ news.text|slice:":20" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
